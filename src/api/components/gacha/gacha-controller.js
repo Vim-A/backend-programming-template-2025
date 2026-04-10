@@ -1,6 +1,5 @@
 const gachaService = require('./gacha-service');
 const { errorResponder, errorTypes } = require('../../../core/errors');
-const { ne } = require('@faker-js/faker');
 
 async function Ngegacha(request, response, next) {
   try {
