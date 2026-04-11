@@ -7,7 +7,7 @@ async function Ngegacha(request, response, next) {
 
     if (!userId || !nama) {
       throw errorResponder(
-        errorTypes.VALIDATION_EROR,
+        errorTypes.VALIDATION_ERROR,
         ' user id dan nama di isi ya'
       );
     }
@@ -23,12 +23,12 @@ async function Ngegacha(request, response, next) {
   }
 }
 
-async function Gethistorigacha(request, response, next) {
+async function getHistorigacha(request, response, next) {
   try {
     const { user_id: userId } = request.body;
     if (!userId) {
       throw errorResponder(
-        errorTypes.VALIDATION_EROR, ' user id di isi ya');
+        errorTypes.VALIDATION_ERROR, ' user id di isi ya');
     }
     const Histori = await gachaService.Historigacha({
       userId,
@@ -39,7 +39,7 @@ async function Gethistorigacha(request, response, next) {
   }
 }
 
-async function GetlistHadiah(request, response, next) {
+async function getListHadiah(request, response, next) {
   try {
     const hadiah = await gachaService.DptHadiah();
 
@@ -58,3 +58,10 @@ async function getListPemenang(request, response, next) {
     return next(error);
   }
 }
+
+module.exports = {
+  Ngegacha,
+  getHistorigacha,
+  getListHadiah,
+  getListPemenang,
+};
