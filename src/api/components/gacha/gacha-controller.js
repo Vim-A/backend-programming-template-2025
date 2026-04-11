@@ -27,8 +27,7 @@ async function getHistorigacha(request, response, next) {
   try {
     const { user_id: userId } = request.body;
     if (!userId) {
-      throw errorResponder(
-        errorTypes.VALIDATION_ERROR, ' user id di isi ya');
+      throw errorResponder(errorTypes.VALIDATION_ERROR, ' user id di isi ya');
     }
     const Histori = await gachaService.Historigacha({
       userId,
@@ -50,7 +49,7 @@ async function getListHadiah(request, response, next) {
 }
 
 async function getListPemenang(request, response, next) {
-  try{
+  try {
     const pemenang = await gachaService.getListPemenang();
 
     return response.status(200).json(pemenang);
